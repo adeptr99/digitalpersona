@@ -1,0 +1,639 @@
+<instrumentationManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/win/2004/08/events">
+	<instrumentation xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<events>
+			<provider name="DigitalPersona-Altus-Core" guid="{FB4CA59D-9C36-4da7-A1E8-E0E3FA7A77A0}" symbol="DP_PROVIDER" resourceFileName="C:\Program Files\DigitalPersona\Bin\DPEventMsg.dll" messageFileName="C:\Program Files\DigitalPersona\Bin\DPEventMsg.dll">
+				<channels>
+					<channel chid="op" name="DigitalPersona-Altus-Core/Operational" type="Operational" symbol="EVENTLOGGINGEXT_OPERATIONAL" isolation="Application" enabled="true"/>
+				</channels>
+				<tasks>
+					<task value="256" name="CredentialManagement" eventGUID="{86CEBA64-7DC6-4d45-9AA3-5A8E3344081D}" symbol="DP_CREDENTIAL_MANAGEMENT_CAT_EXT" message="$(MC.DP_CREDENTIAL_MANAGEMENT_CAT)"/>
+					<task value="512" name="UserManagement" eventGUID="{21978439-A8D4-4572-AFE0-55984FFC14CB}" symbol="DP_USER_MANAGEMENT_CAT_EXT" message="$(MC.DP_USER_MANAGEMENT_CAT)"/>
+					<task value="768" name="SecretManagement" eventGUID="{7A73B030-EC7E-4af7-B1B6-6F1001D3E0CE}" symbol="DP_SECRET_MANAGEMENT_CAT_EXT" message="$(MC.DP_SECRET_MANAGEMENT_CAT)"/>
+					<task value="1024" name="ServiceManagement" eventGUID="{18B8CD6F-408B-492a-8CA0-79C857BCCFAC}" symbol="DP_SERVICE_MANAGEMENT_CAT_EXT" message="$(MC.DP_SERVICE_MANAGEMENT_CAT)"/>
+					<task value="2048" name="CredentialAuthentication" eventGUID="{501D897D-A341-4a5a-98A5-5299D5EF418D}" symbol="DP_CREDENTIAL_AUTHENTICATION_CAT_EXT" message="$(MC.DP_CREDENTIAL_AUTHENTICATION_CAT)"/>
+					<task value="4096" name="Deployment" eventGUID="{077C1845-0BCA-419d-9FB3-DDE0F70CA1E5}" symbol="DP_DEPLOYMENT_CAT_EXT" message="$(MC.DP_DEPLOYMENT_CAT)"/>
+					<task value="4352" name="OTPManagement" eventGUID="{1C90B154-0939-4c0c-93F9-57FA335CD272}" symbol="DP_OTP_MANAGEMENT_CAT_EXT" message="$(MC.DP_OTP_MANAGEMENT_CAT)"/>
+					<task value="5632" name="AuthDomainManagement" eventGUID="{EBED80E3-EC3B-4EB0-A5DA-2366EC1E4D75}" symbol="DP_AUTH_DOMAIN_MANAGEMENT_CAT_EXT" message="$(MC.DP_AUTH_DOMAIN_MANAGEMENT_CAT)"/>
+					<task value="6144" name="BehaviorManagement" eventGUID="{3283DE9E-1984-4F6A-B307-1A5EC11D94E5}" symbol="DP_BEHAVIOR_MANAGEMENT_CAT_EXT" message="$(MC.DP_BEHAVIOR_MANAGEMENT_CAT)"/>
+				</tasks>
+				<templates>
+					<template tid="Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_Error_CredentialMask">
+						<data name="Credential" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+						<data name="CredentialMask" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_CredentialMask">
+						<data name="Credential" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="CredentialMask" inType="win:UnicodeString"/>
+					</template>
+					<template tid="UserDomain_UserName_Error">
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+					</template>
+					<template tid="UserDomain_UserName_ADUserDomain_ADUserName_InitiatorDomain_InitiatorName_Error">
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="ADUserDomain" inType="win:UnicodeString"/>
+						<data name="ADUserName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+					</template>
+					<template tid="UserDomain_UserName_InitiatorDomain_InitiatorName_Error">
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+					</template>
+					<template tid="UserDomain_UserName_InitiatorDomain_InitiatorName">
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+					</template>
+					<template tid="UserDomain_UserName">
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+					</template>
+					<template tid="UserDomain_UserName_Fingerprint_DuplicateUserDomain_DuplicateUserName_DuplicateFingerprint">
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="Fingerprint" inType="win:UnicodeString"/>
+						<data name="DuplicateUserDomain" inType="win:UnicodeString"/>
+						<data name="DuplicateUserName" inType="win:UnicodeString"/>
+						<data name="DuplicateFingerprint" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_CredentialMask_TransactionId">
+						<data name="Credential" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="CredentialMask" inType="win:UnicodeString"/>
+						<data name="TransactionId" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_Error_CredentialMask_TransactionId">
+						<data name="Credential" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+						<data name="CredentialMask" inType="win:UnicodeString"/>
+						<data name="TransactionId" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Credential_UserDomain_UserName_DuplicateUserDomain_DuplicateUserName_CredentialMask">
+						<data name="Credential" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="DuplicateUserDomain" inType="win:UnicodeString"/>
+						<data name="DuplicateUserName" inType="win:UnicodeString"/>
+						<data name="CredentialMask" inType="win:UnicodeString"/>
+					</template>
+					<template tid="FlagsToSet_FlagsToReset_UserDomain_UserName_InitiatorDomain_InitiatorName_Error">
+						<data name="FlagsToSet" inType="win:UnicodeString"/>
+						<data name="FlagsToReset" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+					</template>
+					<template tid="FlagsSet_FlagsReset_UserDomain_UserName_InitiatorDomain_InitiatorName">
+						<data name="FlagsSet" inType="win:UnicodeString"/>
+						<data name="FlagsReset" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+					</template>
+					<template tid="UserDomain_UserName_InitiatorDomain_InitiatorName_TransactionId">
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="TransactionId" inType="win:UnicodeString"/>
+					</template>
+					<template tid="UserDomain_UserName_Attribute_InitiatorDomain_InitiatorName">
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="Attribute" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+					</template>
+					<template tid="UserDomain_UserName_Attribute_InitiatorDomain_InitiatorName_Error">
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="Attribute" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+					</template>
+					<template tid="File_InitiatorDomain_InitiatorName">
+						<data name="File" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+					</template>
+					<template tid="File_InitiatorDomain_InitiatorName_Error">
+						<data name="File" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+					</template>
+					<template tid="File_UserDomain_UserName_InitiatorDomain_InitiatorName_Error">
+						<data name="File" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+					</template>
+					<template tid="UserDomain_UserName_ApproverDomain_ApproverName">
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="ApproverDomain" inType="win:UnicodeString"/>
+						<data name="ApproverName" inType="win:UnicodeString"/>
+					</template>
+					<template tid="DataName_UserDomain_UserName_InitiatorDomain_InitiatorName_Error">
+						<data name="DataName" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+					</template>
+					<template tid="DataName_UserDomain_UserName_InitiatorDomain_InitiatorName">
+						<data name="DataName" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Policy_Credentials_DataName_UserDomain_UserName_InitiatorDomain_InitiatorName_Error_PolicyMask_RuleMask_CredentialsMask">
+						<data name="Policy" inType="win:UnicodeString"/>
+						<data name="Credentials" inType="win:UnicodeString"/>
+						<data name="DataName" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+						<data name="PolicyMask" inType="win:UnicodeString"/>
+						<data name="RuleMask" inType="win:UnicodeString"/>
+						<data name="CredentialsMask" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Policy_Credentials_DataName_UserDomain_UserName_InitiatorDomain_InitiatorName_PolicyMask_RuleMask_CredentialsMask">
+						<data name="Policy" inType="win:UnicodeString"/>
+						<data name="Credentials" inType="win:UnicodeString"/>
+						<data name="DataName" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="PolicyMask" inType="win:UnicodeString"/>
+						<data name="RuleMask" inType="win:UnicodeString"/>
+						<data name="CredentialsMask" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Error">
+						<data name="Error" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Parameter_OldValue_InitiatorDomain_InitiatorName_Error">
+						<data name="Parameter" inType="win:UnicodeString"/>
+						<data name="OldValue" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Parameter_OldValue_InitiatorDomain_InitiatorName">
+						<data name="Parameter" inType="win:UnicodeString"/>
+						<data name="OldValue" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Parameter_OldValue_NewValue_InitiatorDomain_InitiatorName_Error">
+						<data name="Parameter" inType="win:UnicodeString"/>
+						<data name="OldValue" inType="win:UnicodeString"/>
+						<data name="NewValue" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Parameter_OldValue_NewValue_InitiatorDomain_InitiatorName">
+						<data name="Parameter" inType="win:UnicodeString"/>
+						<data name="OldValue" inType="win:UnicodeString"/>
+						<data name="NewValue" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Server_Domain_Site_Error">
+						<data name="Server" inType="win:UnicodeString"/>
+						<data name="Domain" inType="win:UnicodeString"/>
+						<data name="Site" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Server">
+						<data name="Server" inType="win:UnicodeString"/>
+					</template>
+					<template tid="UserDomain_UserName_Credential_CredentialMask">
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="Credential" inType="win:UnicodeString"/>
+						<data name="CredentialMask" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_Approved_CredentialMask">
+						<data name="Credential" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="Approved" inType="win:UnicodeString"/>
+						<data name="CredentialMask" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Credential_CredentialMask">
+						<data name="Credential" inType="win:UnicodeString"/>
+						<data name="CredentialMask" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Credential_UserDomain_UserName_CredentialMask">
+						<data name="Credential" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="CredentialMask" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Trigger_UserDomain_UserName">
+						<data name="Trigger" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+					</template>
+					<template tid="UsersAllowed">
+						<data name="UsersAllowed" inType="win:UnicodeString"/>
+					</template>
+					<template tid="UsersAllowed_TotalUsersAllowed">
+						<data name="UsersAllowed" inType="win:UnicodeString"/>
+						<data name="TotalUsersAllowed" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Status">
+						<data name="Status" inType="win:UnicodeString"/>
+					</template>
+					<template tid=""/>
+					<template tid="LicenseId_UsersAllowed_InitiatorDomain_InitiatorName_TotalUsersAllowed">
+						<data name="LicenseId" inType="win:UnicodeString"/>
+						<data name="UsersAllowed" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="TotalUsersAllowed" inType="win:UnicodeString"/>
+					</template>
+					<template tid="InitiatorDomain_InitiatorName_TotalUsersAllowed">
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="TotalUsersAllowed" inType="win:UnicodeString"/>
+					</template>
+					<template tid="ProductName_ProductVersion">
+						<data name="ProductName" inType="win:UnicodeString"/>
+						<data name="ProductVersion" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Products">
+						<data name="Products" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Applications">
+						<data name="Applications" inType="win:UnicodeString"/>
+					</template>
+					<template tid="Vendor_Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_CredentialMask">
+						<data name="Vendor" inType="win:UnicodeString"/>
+						<data name="Credential" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="CredentialMask" inType="win:UnicodeString"/>
+					</template>
+					<template tid="PskcFileName_InitiatorDomain_InitiatorName">
+						<data name="PskcFileName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+					</template>
+					<template tid="PskcFileName_InitiatorDomain_InitiatorName_Error">
+						<data name="PskcFileName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+					</template>
+					<template tid="SerialNumber_InitiatorDomain_InitiatorName">
+						<data name="SerialNumber" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+					</template>
+					<template tid="SerialNumber_InitiatorDomain_InitiatorName_Error">
+						<data name="SerialNumber" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+					</template>
+					<template tid="AuthDomain_InitiatorDomain_InitiatorName_Error_Message">
+						<data name="AuthDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+						<data name="Message" inType="win:UnicodeString"/>
+					</template>
+					<template tid="AuthDomain_InitiatorDomain_InitiatorName">
+						<data name="AuthDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+					</template>
+					<template tid="AuthDomain_UserDomain_UserName_InitiatorDomain_InitiatorName_Error_Message">
+						<data name="AuthDomain" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+						<data name="Message" inType="win:UnicodeString"/>
+					</template>
+					<template tid="AuthDomain_UserDomain_UserName_InitiatorDomain_InitiatorName">
+						<data name="AuthDomain" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+					</template>
+					<template tid="AuthDomain_UserDomain_UserName_Credentials_InitiatorDomain_InitiatorName_Error_Message_CredentialMask">
+						<data name="AuthDomain" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="Credentials" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+						<data name="Message" inType="win:UnicodeString"/>
+						<data name="CredentialMask" inType="win:UnicodeString"/>
+					</template>
+					<template tid="AuthDomain_UserDomain_UserName_Credentials_InitiatorDomain_InitiatorName_CredentialMask">
+						<data name="AuthDomain" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="Credentials" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="CredentialMask" inType="win:UnicodeString"/>
+					</template>
+					<template tid="AuthDomain_UserDomain_UserName_Policy_InitiatorDomain_InitiatorName_Error_Message_PolicyMask_RuleMask">
+						<data name="AuthDomain" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="Policy" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+						<data name="Message" inType="win:UnicodeString"/>
+						<data name="PolicyMask" inType="win:UnicodeString"/>
+						<data name="RuleMask" inType="win:UnicodeString"/>
+					</template>
+					<template tid="AuthDomain_UserDomain_UserName_Policy_InitiatorDomain_InitiatorName_PolicyMask_RuleMask">
+						<data name="AuthDomain" inType="win:UnicodeString"/>
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="Policy" inType="win:UnicodeString"/>
+						<data name="InitiatorDomain" inType="win:UnicodeString"/>
+						<data name="InitiatorName" inType="win:UnicodeString"/>
+						<data name="PolicyMask" inType="win:UnicodeString"/>
+						<data name="RuleMask" inType="win:UnicodeString"/>
+					</template>
+					<template tid="UserDomain_UserName_TrainingPercentComplete">
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="TrainingPercentComplete" inType="win:UnicodeString"/>
+					</template>
+				</templates>
+				<events>
+					<event value="259" level="win:Warning" task="CredentialManagement" channel="op" symbol="DP_CRED_REGISTER_FAILURE_EXT" message="$(MC.DP_CRED_REGISTER_FAILURE)" template="Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_Error_CredentialMask"/>
+					<event value="260" level="win:Informational" task="CredentialManagement" channel="op" symbol="DP_CRED_REGISTER_SUCCESS_EXT" message="$(MC.DP_CRED_REGISTER_SUCCESS)" template="Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_CredentialMask"/>
+					<event value="261" level="win:Warning" task="CredentialManagement" channel="op" symbol="DP_CRED_UNREGISTER_FAILURE_EXT" message="$(MC.DP_CRED_UNREGISTER_FAILURE)" template="Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_Error_CredentialMask"/>
+					<event value="262" level="win:Informational" task="CredentialManagement" channel="op" symbol="DP_CRED_UNREGISTER_SUCCESS_EXT" message="$(MC.DP_CRED_UNREGISTER_SUCCESS)" template="Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_CredentialMask"/>
+					<event value="263" level="win:Error" task="CredentialManagement" channel="op" symbol="DP_PAYLOAD_RECOVERY_FAILURE_EXT" message="$(MC.DP_PAYLOAD_RECOVERY_FAILURE)" template="UserDomain_UserName_Error"/>
+					<event value="267" level="win:Warning" task="CredentialManagement" channel="op" symbol="DP_CRED_EXPORT_FAILURE_EXT" message="$(MC.DP_CRED_EXPORT_FAILURE)" template="UserDomain_UserName_Error"/>
+					<event value="268" level="win:Warning" task="CredentialManagement" channel="op" symbol="DP_CRED_IMPORT_FAILURE_EXT" message="$(MC.DP_CRED_IMPORT_FAILURE)" template="UserDomain_UserName_Error"/>
+					<event value="269" level="win:Informational" task="CredentialManagement" channel="op" symbol="DP_CRED_EXPORT_SUCCESS_EXT" message="$(MC.DP_CRED_EXPORT_SUCCESS)" template="Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_CredentialMask"/>
+					<event value="270" level="win:Informational" task="CredentialManagement" channel="op" symbol="DP_CRED_IMPORT_SUCCESS_EXT" message="$(MC.DP_CRED_IMPORT_SUCCESS)" template="Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_CredentialMask"/>
+					<event value="272" level="win:Error" task="CredentialManagement" channel="op" symbol="DP_USER_RECORD_CONSISTENCY_FAILURE_EXT" message="$(MC.DP_USER_RECORD_CONSISTENCY_FAILURE)" template="UserDomain_UserName_ADUserDomain_ADUserName_InitiatorDomain_InitiatorName_Error"/>
+					<event value="273" level="win:Error" task="CredentialManagement" channel="op" symbol="DP_USER_RECORD_SIGNATURE_FAILURE_EXT" message="$(MC.DP_USER_RECORD_SIGNATURE_FAILURE)" template="UserDomain_UserName_InitiatorDomain_InitiatorName_Error"/>
+					<event value="275" level="win:Warning" task="CredentialManagement" channel="op" symbol="DP_SMARTCARD_PINCHANGE_FAILURE_EXT" message="$(MC.DP_SMARTCARD_PINCHANGE_FAILURE)" template="UserDomain_UserName_InitiatorDomain_InitiatorName_Error"/>
+					<event value="276" level="win:Informational" task="CredentialManagement" channel="op" symbol="DP_SMARTCARD_PINCHANGE_SUCCESS_EXT" message="$(MC.DP_SMARTCARD_PINCHANGE_SUCCESS)" template="UserDomain_UserName_InitiatorDomain_InitiatorName"/>
+					<event value="277" level="win:Error" task="CredentialManagement" channel="op" symbol="DP_FINGERPRINT_CACHED_CLEARED_EXT" message="$(MC.DP_FINGERPRINT_CACHED_CLEARED)" template="UserDomain_UserName"/>
+					<event value="278" level="win:Error" task="CredentialManagement" channel="op" symbol="DP_FINGERPRINT_DUPLICATE_ENROLLED_EXT" message="$(MC.DP_FINGERPRINT_DUPLICATE_ENROLLED)" template="UserDomain_UserName_Fingerprint_DuplicateUserDomain_DuplicateUserName_DuplicateFingerprint"/>
+					<event value="281" level="win:Informational" task="CredentialManagement" channel="op" symbol="DP_CRED_ATTENDED_REGISTER_SUCCESS_EXT" message="$(MC.DP_CRED_ATTENDED_REGISTER_SUCCESS)" template="Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_CredentialMask_TransactionId"/>
+					<event value="288" level="win:Warning" task="CredentialManagement" channel="op" symbol="DP_CRED_ATTENDED_REGISTER_FAILURE_EXT" message="$(MC.DP_CRED_ATTENDED_REGISTER_FAILURE)" template="Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_Error_CredentialMask_TransactionId"/>
+					<event value="289" level="win:Informational" task="CredentialManagement" channel="op" symbol="DP_CRED_ATTENDED_UNREGISTER_SUCCESS_EXT" message="$(MC.DP_CRED_ATTENDED_UNREGISTER_SUCCESS)" template="Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_CredentialMask_TransactionId"/>
+					<event value="290" level="win:Warning" task="CredentialManagement" channel="op" symbol="DP_CRED_ATTENDED_UNREGISTER_FAILURE_EXT" message="$(MC.DP_CRED_ATTENDED_UNREGISTER_FAILURE)" template="Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_Error_CredentialMask_TransactionId"/>
+					<event value="291" level="win:Error" task="CredentialManagement" channel="op" symbol="DP_CREDENTIAL_DUPLICATE_ENROLLED_EXT" message="$(MC.DP_CREDENTIAL_DUPLICATE_ENROLLED)" template="Credential_UserDomain_UserName_DuplicateUserDomain_DuplicateUserName_CredentialMask"/>
+					<event value="527" level="win:Error" task="UserManagement" channel="op" symbol="DP_ACCOUNT_CONTROL_FLAGS_UPDATE_FAILURE_EXT" message="$(MC.DP_ACCOUNT_CONTROL_FLAGS_UPDATE_FAILURE)" template="FlagsToSet_FlagsToReset_UserDomain_UserName_InitiatorDomain_InitiatorName_Error"/>
+					<event value="528" level="win:Informational" task="UserManagement" channel="op" symbol="DP_ACCOUNT_CONTROL_FLAGS_UPDATE_SUCCESS_EXT" message="$(MC.DP_ACCOUNT_CONTROL_FLAGS_UPDATE_SUCCESS)" template="FlagsSet_FlagsReset_UserDomain_UserName_InitiatorDomain_InitiatorName"/>
+					<event value="529" level="win:Informational" task="UserManagement" channel="op" symbol="DP_USER_ACCOUNT_UNLOCKED_EXT" message="$(MC.DP_USER_ACCOUNT_UNLOCKED)" template="UserDomain_UserName"/>
+					<event value="530" level="win:Informational" task="UserManagement" channel="op" symbol="DP_USER_PASSWORD_RANDOMIZED_EXT" message="$(MC.DP_USER_PASSWORD_RANDOMIZED)" template="UserDomain_UserName"/>
+					<event value="531" level="win:Informational" task="UserManagement" channel="op" symbol="DP_USER_RECORD_ADD_SUCCESS_EXT" message="$(MC.DP_USER_RECORD_ADD_SUCCESS)" template="UserDomain_UserName_InitiatorDomain_InitiatorName"/>
+					<event value="532" level="win:Error" task="UserManagement" channel="op" symbol="DP_USER_RECORD_ADD_FAILURE_EXT" message="$(MC.DP_USER_RECORD_ADD_FAILURE)" template="UserDomain_UserName_InitiatorDomain_InitiatorName_Error"/>
+					<event value="533" level="win:Informational" task="UserManagement" channel="op" symbol="DP_USER_RECORD_DELETE_SUCCESS_EXT" message="$(MC.DP_USER_RECORD_DELETE_SUCCESS)" template="UserDomain_UserName_InitiatorDomain_InitiatorName"/>
+					<event value="534" level="win:Error" task="UserManagement" channel="op" symbol="DP_USER_RECORD_DELETE_FAILURE_EXT" message="$(MC.DP_USER_RECORD_DELETE_FAILURE)" template="UserDomain_UserName_InitiatorDomain_InitiatorName_Error"/>
+					<event value="536" level="win:Informational" task="UserManagement" channel="op" symbol="DP_ACCOUNT_SELF_UNLOCK_EXT" message="$(MC.DP_ACCOUNT_SELF_UNLOCK)" template="UserDomain_UserName"/>
+					<event value="537" level="win:Informational" task="UserManagement" channel="op" symbol="DP_USER_ATTENDED_ADD_SUCCESS_EXT" message="$(MC.DP_USER_ATTENDED_ADD_SUCCESS)" template="UserDomain_UserName_InitiatorDomain_InitiatorName_TransactionId"/>
+					<event value="544" level="win:Error" task="UserManagement" channel="op" symbol="DP_USER_ATTENDED_ADD_FAILURE_EXT" message="$(MC.DP_USER_ATTENDED_ADD_FAILURE)" template="UserDomain_UserName_InitiatorDomain_InitiatorName_Error"/>
+					<event value="545" level="win:Informational" task="UserManagement" channel="op" symbol="DP_USER_ATTENDED_OPEN_SUCCESS_EXT" message="$(MC.DP_USER_ATTENDED_OPEN_SUCCESS)" template="UserDomain_UserName_InitiatorDomain_InitiatorName_TransactionId"/>
+					<event value="546" level="win:Error" task="UserManagement" channel="op" symbol="DP_USER_ATTENDED_OPEN_FAILURE_EXT" message="$(MC.DP_USER_ATTENDED_OPEN_FAILURE)" template="UserDomain_UserName_InitiatorDomain_InitiatorName_Error"/>
+					<event value="547" level="win:Informational" task="UserManagement" channel="op" symbol="DP_USER_ATTENDED_CLOSE_SUCCESS_EXT" message="$(MC.DP_USER_ATTENDED_CLOSE_SUCCESS)" template="UserDomain_UserName_InitiatorDomain_InitiatorName_TransactionId"/>
+					<event value="548" level="win:Error" task="UserManagement" channel="op" symbol="DP_USER_ATTENDED_CLOSE_FAILURE_EXT" message="$(MC.DP_USER_ATTENDED_CLOSE_FAILURE)" template="UserDomain_UserName_InitiatorDomain_InitiatorName_Error"/>
+					<event value="549" level="win:Informational" task="UserManagement" channel="op" symbol="DP_USER_ATTR_QUERY_SUCCESS_EXT" message="$(MC.DP_USER_ATTR_QUERY_SUCCESS)" template="UserDomain_UserName_Attribute_InitiatorDomain_InitiatorName"/>
+					<event value="550" level="win:Warning" task="UserManagement" channel="op" symbol="DP_USER_ATTR_QUERY_FAILURE_EXT" message="$(MC.DP_USER_ATTR_QUERY_FAILURE)" template="UserDomain_UserName_Attribute_InitiatorDomain_InitiatorName_Error"/>
+					<event value="551" level="win:Informational" task="UserManagement" channel="op" symbol="DP_USER_ATTR_UPDATE_SUCCESS_EXT" message="$(MC.DP_USER_ATTR_UPDATE_SUCCESS)" template="UserDomain_UserName_Attribute_InitiatorDomain_InitiatorName"/>
+					<event value="552" level="win:Error" task="UserManagement" channel="op" symbol="DP_USER_ATTR_UPDATE_FAILURE_EXT" message="$(MC.DP_USER_ATTR_UPDATE_FAILURE)" template="UserDomain_UserName_Attribute_InitiatorDomain_InitiatorName_Error"/>
+					<event value="553" level="win:Informational" task="UserManagement" channel="op" symbol="DP_USER_FILE_EXPORT_SUCCESS_EXT" message="$(MC.DP_USER_FILE_EXPORT_SUCCESS)" template="File_InitiatorDomain_InitiatorName"/>
+					<event value="560" level="win:Error" task="UserManagement" channel="op" symbol="DP_USER_FILE_EXPORT_FAILURE_EXT" message="$(MC.DP_USER_FILE_EXPORT_FAILURE)" template="File_InitiatorDomain_InitiatorName_Error"/>
+					<event value="561" level="win:Informational" task="UserManagement" channel="op" symbol="DP_USER_FILE_IMPORT_SUCCESS_EXT" message="$(MC.DP_USER_FILE_IMPORT_SUCCESS)" template="File_InitiatorDomain_InitiatorName"/>
+					<event value="562" level="win:Error" task="UserManagement" channel="op" symbol="DP_USER_FILE_IMPORT_FAILURE_EXT" message="$(MC.DP_USER_FILE_IMPORT_FAILURE)" template="File_InitiatorDomain_InitiatorName_Error"/>
+					<event value="563" level="win:Error" task="UserManagement" channel="op" symbol="DP_USER_RECORD_IMPORT_FAILURE_EXT" message="$(MC.DP_USER_RECORD_IMPORT_FAILURE)" template="File_UserDomain_UserName_InitiatorDomain_InitiatorName_Error"/>
+					<event value="564" level="win:Informational" task="UserManagement" channel="op" symbol="DP_APPROVE_SUCCESS_EXT" message="$(MC.DP_APPROVE_SUCCESS)" template="UserDomain_UserName_ApproverDomain_ApproverName"/>
+					<event value="565" level="win:Error" task="UserManagement" channel="op" symbol="DP_APPROVE_FAILURE_EXT" message="$(MC.DP_APPROVE_FAILURE)" template="UserDomain_UserName_InitiatorDomain_InitiatorName_Error"/>
+					<event value="769" level="win:Error" task="SecretManagement" channel="op" symbol="DP_SECRET_CONSISTENCY_FAILURE_EXT" message="$(MC.DP_SECRET_CONSISTENCY_FAILURE)" template="DataName_UserDomain_UserName_InitiatorDomain_InitiatorName_Error"/>
+					<event value="770" level="win:Warning" task="SecretManagement" channel="op" symbol="DP_SECRET_DELETE_FAILURE_EXT" message="$(MC.DP_SECRET_DELETE_FAILURE)" template="DataName_UserDomain_UserName_InitiatorDomain_InitiatorName_Error"/>
+					<event value="771" level="win:Informational" task="SecretManagement" channel="op" symbol="DP_SECRET_DELETE_SUCCESS_EXT" message="$(MC.DP_SECRET_DELETE_SUCCESS)" template="DataName_UserDomain_UserName_InitiatorDomain_InitiatorName"/>
+					<event value="772" level="win:Warning" task="SecretManagement" channel="op" symbol="DP_SECRET_RELEASE_FAILURE_EXT" message="$(MC.DP_SECRET_RELEASE_FAILURE)" template="Policy_Credentials_DataName_UserDomain_UserName_InitiatorDomain_InitiatorName_Error_PolicyMask_RuleMask_CredentialsMask"/>
+					<event value="773" level="win:Informational" task="SecretManagement" channel="op" symbol="DP_SECRET_RELEASE_SUCCESS_EXT" message="$(MC.DP_SECRET_RELEASE_SUCCESS)" template="Policy_Credentials_DataName_UserDomain_UserName_InitiatorDomain_InitiatorName_PolicyMask_RuleMask_CredentialsMask"/>
+					<event value="774" level="win:Error" task="SecretManagement" channel="op" symbol="DP_SECRET_SIGNATURE_FAILURE_EXT" message="$(MC.DP_SECRET_SIGNATURE_FAILURE)" template="DataName_UserDomain_UserName_InitiatorDomain_InitiatorName_Error"/>
+					<event value="775" level="win:Warning" task="SecretManagement" channel="op" symbol="DP_SECRET_WRITE_FAILURE_EXT" message="$(MC.DP_SECRET_WRITE_FAILURE)" template="DataName_UserDomain_UserName_InitiatorDomain_InitiatorName_Error"/>
+					<event value="776" level="win:Informational" task="SecretManagement" channel="op" symbol="DP_SECRET_WRITE_SUCCESS_EXT" message="$(MC.DP_SECRET_WRITE_SUCCESS)" template="DataName_UserDomain_UserName_InitiatorDomain_InitiatorName"/>
+					<event value="779" level="win:Error" task="SecretManagement" channel="op" symbol="DP_SECRET_SYNC_FAILURE_EXT" message="$(MC.DP_SECRET_SYNC_FAILURE)" template="DataName_UserDomain_UserName_InitiatorDomain_InitiatorName_Error"/>
+					<event value="780" level="win:Informational" task="SecretManagement" channel="op" symbol="DP_SECRET_SYNC_SUCCESS_EXT" message="$(MC.DP_SECRET_SYNC_SUCCESS)" template="DataName_UserDomain_UserName_InitiatorDomain_InitiatorName"/>
+					<event value="1029" level="win:Error" task="ServiceManagement" channel="op" symbol="DP_HOST_START_FAILURE_EXT" message="$(MC.DP_HOST_START_FAILURE)" template="Error"/>
+					<event value="1032" level="win:Warning" task="ServiceManagement" channel="op" symbol="DP_ITEMINFO_REMOVE_FAILURE_EXT" message="$(MC.DP_ITEMINFO_REMOVE_FAILURE)" template="Parameter_OldValue_InitiatorDomain_InitiatorName_Error"/>
+					<event value="1033" level="win:Informational" task="ServiceManagement" channel="op" symbol="DP_ITEMINFO_REMOVE_SUCCESS_EXT" message="$(MC.DP_ITEMINFO_REMOVE_SUCCESS)" template="Parameter_OldValue_InitiatorDomain_InitiatorName"/>
+					<event value="1034" level="win:Warning" task="ServiceManagement" channel="op" symbol="DP_ITEMINFO_SET_FAILURE_EXT" message="$(MC.DP_ITEMINFO_SET_FAILURE)" template="Parameter_OldValue_NewValue_InitiatorDomain_InitiatorName_Error"/>
+					<event value="1035" level="win:Informational" task="ServiceManagement" channel="op" symbol="DP_ITEMINFO_SET_SUCCESS_EXT" message="$(MC.DP_ITEMINFO_SET_SUCCESS)" template="Parameter_OldValue_NewValue_InitiatorDomain_InitiatorName"/>
+					<event value="1041" level="win:Error" task="ServiceManagement" channel="op" symbol="DP_DNS_REGISTRATION_FAILED_EXT" message="$(MC.DP_DNS_REGISTRATION_FAILED)" template="Server_Domain_Site_Error"/>
+					<event value="1042" level="win:Error" task="ServiceManagement" channel="op" symbol="DP_DNS_UNREGISTRATION_FAILED_EXT" message="$(MC.DP_DNS_UNREGISTRATION_FAILED)" template="Server_Domain_Site_Error"/>
+					<event value="1043" level="win:Error" task="ServiceManagement" channel="op" symbol="DP_FINDER_NO_SRV_CONNECTION_EXT" message="$(MC.DP_FINDER_NO_SRV_CONNECTION)" template="Server"/>
+					<event value="1044" level="win:Error" task="ServiceManagement" channel="op" symbol="DP_FINDER_NO_SERVERS_EXT" message="$(MC.DP_FINDER_NO_SERVERS)" template="Server"/>
+					<event value="2051" level="win:Error" task="CredentialAuthentication" channel="op" symbol="DP_FPMATCH_ACCOUNT_LOCKED_EXT" message="$(MC.DP_FPMATCH_ACCOUNT_LOCKED)" template="UserDomain_UserName"/>
+					<event value="2053" level="win:Error" task="CredentialAuthentication" channel="op" symbol="DP_USER_ACCOUNT_LOCKED_EXT" message="$(MC.DP_USER_ACCOUNT_LOCKED)" template="UserDomain_UserName_Credential_CredentialMask"/>
+					<event value="2054" level="win:Warning" task="CredentialAuthentication" channel="op" symbol="DP_AUTH_FAILURE_EXT" message="$(MC.DP_AUTH_FAILURE)" template="Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_Error_CredentialMask"/>
+					<event value="2055" level="win:Informational" task="CredentialAuthentication" channel="op" symbol="DP_AUTH_SUCCESS_EXT" message="$(MC.DP_AUTH_SUCCESS)" template="Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_Approved_CredentialMask"/>
+					<event value="2056" level="win:Informational" task="CredentialAuthentication" channel="op" symbol="DP_PASSWORD_RESET_EXT" message="$(MC.DP_PASSWORD_RESET)" template="UserDomain_UserName"/>
+					<event value="2057" level="win:Warning" task="CredentialAuthentication" channel="op" symbol="DP_IDENT_FAILURE_EXT" message="$(MC.DP_IDENT_FAILURE)" template="Credential_CredentialMask"/>
+					<event value="2058" level="win:Informational" task="CredentialAuthentication" channel="op" symbol="DP_IDENT_SUCCESS_EXT" message="$(MC.DP_IDENT_SUCCESS)" template="Credential_UserDomain_UserName_CredentialMask"/>
+					<event value="2059" level="win:Informational" task="CredentialAuthentication" channel="op" symbol="DP_ENHANCED_POLICY_TRIGGERED_EXT" message="$(MC.DP_ENHANCED_POLICY_TRIGGERED)" template="Trigger_UserDomain_UserName"/>
+					<event value="4097" level="win:Error" task="Deployment" channel="op" symbol="DP_LICENSE_QUOTA_EXCEEDED_EXT" message="$(MC.DP_LICENSE_QUOTA_EXCEEDED)" template="UsersAllowed"/>
+					<event value="4098" level="win:Warning" task="Deployment" channel="op" symbol="DP_LICENSE_QUOTA_NEAR_EXCEEDED_EXT" message="$(MC.DP_LICENSE_QUOTA_NEAR_EXCEEDED)" template="UsersAllowed_TotalUsersAllowed"/>
+					<event value="4104" level="win:Informational" task="Deployment" channel="op" symbol="DP_LICENSE_STATUS_EXT" message="$(MC.DP_LICENSE_STATUS)" template="Status"/>
+					<event value="4105" level="win:Informational" task="Deployment" channel="op" symbol="DP_EVALUATION_TO_STANDARD_EXT" message="$(MC.DP_EVALUATION_TO_STANDARD)" template=""/>
+					<event value="4112" level="win:Informational" task="Deployment" channel="op" symbol="DP_IDSVR_LIC_DEL_SUCCESS_EXT" message="$(MC.DP_IDSVR_LIC_DEL_SUCCESS)" template="LicenseId_UsersAllowed_InitiatorDomain_InitiatorName_TotalUsersAllowed"/>
+					<event value="4113" level="win:Informational" task="Deployment" channel="op" symbol="DP_IDSVR_LIC_ADD_SUCCESS_EXT" message="$(MC.DP_IDSVR_LIC_ADD_SUCCESS)" template="LicenseId_UsersAllowed_InitiatorDomain_InitiatorName_TotalUsersAllowed"/>
+					<event value="4114" level="win:Error" task="Deployment" channel="op" symbol="DP_IDSVR_LIC_ADD_FAILURE_EXT" message="$(MC.DP_IDSVR_LIC_ADD_FAILURE)" template="InitiatorDomain_InitiatorName_TotalUsersAllowed"/>
+					<event value="4130" level="win:Informational" task="Deployment" channel="op" symbol="DP_ACTIVITY_SOFTWARE_INSTALLED_EXT" message="$(MC.DP_ACTIVITY_SOFTWARE_INSTALLED)" template="ProductName_ProductVersion"/>
+					<event value="4131" level="win:Informational" task="Deployment" channel="op" symbol="DP_ACTIVITY_SOFTWARE_UNINSTALLED_EXT" message="$(MC.DP_ACTIVITY_SOFTWARE_UNINSTALLED)" template="ProductName_ProductVersion"/>
+					<event value="4145" level="win:Informational" task="Deployment" channel="op" symbol="DP_PRODUCT_INFO_EXT" message="$(MC.DP_PRODUCT_INFO)" template="Products"/>
+					<event value="4146" level="win:Informational" task="Deployment" channel="op" symbol="DP_STATUS_EVENT_APPLICATIONS_EXT" message="$(MC.DP_STATUS_EVENT_APPLICATIONS)" template="Applications"/>
+					<event value="4353" level="win:Informational" task="OTPManagement" channel="op" symbol="DP_OTP_PROVISION_SUCCESS_EXT" message="$(MC.DP_OTP_PROVISION_SUCCESS)" template="Vendor_Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_CredentialMask"/>
+					<event value="4354" level="win:Error" task="OTPManagement" channel="op" symbol="DP_OTP_PROVISION_FAILURE_EXT" message="$(MC.DP_OTP_PROVISION_FAILURE)" template="UserDomain_UserName_InitiatorDomain_InitiatorName_Error"/>
+					<event value="4355" level="win:Informational" task="OTPManagement" channel="op" symbol="DP_OTP_GENERATION_SUCCESS_EXT" message="$(MC.DP_OTP_GENERATION_SUCCESS)" template="Vendor_Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_CredentialMask"/>
+					<event value="4356" level="win:Error" task="OTPManagement" channel="op" symbol="DP_OTP_GENERATION_FAILURE_EXT" message="$(MC.DP_OTP_GENERATION_FAILURE)" template="UserDomain_UserName_InitiatorDomain_InitiatorName_Error"/>
+					<event value="4357" level="win:Informational" task="OTPManagement" channel="op" symbol="DP_OTP_DELETE_SUCCESS_EXT" message="$(MC.DP_OTP_DELETE_SUCCESS)" template="Vendor_Credential_UserDomain_UserName_InitiatorDomain_InitiatorName_CredentialMask"/>
+					<event value="4358" level="win:Error" task="OTPManagement" channel="op" symbol="DP_OTP_DELETE_FAILURE_EXT" message="$(MC.DP_OTP_DELETE_FAILURE)" template="UserDomain_UserName_InitiatorDomain_InitiatorName_Error"/>
+					<event value="4359" level="win:Informational" task="OTPManagement" channel="op" symbol="DP_OTP_PSKC_IMPORT_SUCCESS_EXT" message="$(MC.DP_OTP_PSKC_IMPORT_SUCCESS)" template="PskcFileName_InitiatorDomain_InitiatorName"/>
+					<event value="4360" level="win:Error" task="OTPManagement" channel="op" symbol="DP_OTP_PSKC_IMPORT_FAILURE_EXT" message="$(MC.DP_OTP_PSKC_IMPORT_FAILURE)" template="PskcFileName_InitiatorDomain_InitiatorName_Error"/>
+					<event value="4361" level="win:Informational" task="OTPManagement" channel="op" symbol="DP_OTP_HARDWARE_CREATE_SUCCESS_EXT" message="$(MC.DP_OTP_HARDWARE_CREATE_SUCCESS)" template="SerialNumber_InitiatorDomain_InitiatorName"/>
+					<event value="4362" level="win:Error" task="OTPManagement" channel="op" symbol="DP_OTP_HARDWARE_CREATE_FAILURE_EXT" message="$(MC.DP_OTP_HARDWARE_CREATE_FAILURE)" template="SerialNumber_InitiatorDomain_InitiatorName_Error"/>
+					<event value="4363" level="win:Informational" task="OTPManagement" channel="op" symbol="DP_OTP_HARDWARE_DELETE_SUCCESS_EXT" message="$(MC.DP_OTP_HARDWARE_DELETE_SUCCESS)" template="SerialNumber_InitiatorDomain_InitiatorName"/>
+					<event value="4364" level="win:Error" task="OTPManagement" channel="op" symbol="DP_OTP_HARDWARE_DELETE_FAILURE_EXT" message="$(MC.DP_OTP_HARDWARE_DELETE_FAILURE)" template="SerialNumber_InitiatorDomain_InitiatorName_Error"/>
+					<event value="5633" level="win:Warning" task="AuthDomainManagement" channel="op" symbol="DP_DOMAIN_ACTIVATION_FAILURE_EXT" message="$(MC.DP_DOMAIN_ACTIVATION_FAILURE)" template="AuthDomain_InitiatorDomain_InitiatorName_Error_Message"/>
+					<event value="5634" level="win:Informational" task="AuthDomainManagement" channel="op" symbol="DP_DOMAIN_ACTIVATION_SUCCESS_EXT" message="$(MC.DP_DOMAIN_ACTIVATION_SUCCESS)" template="AuthDomain_InitiatorDomain_InitiatorName"/>
+					<event value="5635" level="win:Warning" task="AuthDomainManagement" channel="op" symbol="DP_DOMAIN_DEACTIVATION_FAILURE_EXT" message="$(MC.DP_DOMAIN_DEACTIVATION_FAILURE)" template="AuthDomain_InitiatorDomain_InitiatorName_Error_Message"/>
+					<event value="5636" level="win:Informational" task="AuthDomainManagement" channel="op" symbol="DP_DOMAIN_DEACTIVATION_SUCCESS_EXT" message="$(MC.DP_DOMAIN_DEACTIVATION_SUCCESS)" template="AuthDomain_InitiatorDomain_InitiatorName"/>
+					<event value="5637" level="win:Warning" task="AuthDomainManagement" channel="op" symbol="DP_DOMAIN_ADDUSER_FAILURE_EXT" message="$(MC.DP_DOMAIN_ADDUSER_FAILURE)" template="AuthDomain_UserDomain_UserName_InitiatorDomain_InitiatorName_Error_Message"/>
+					<event value="5638" level="win:Informational" task="AuthDomainManagement" channel="op" symbol="DP_DOMAIN_ADDUSER_SUCCESS_EXT" message="$(MC.DP_DOMAIN_ADDUSER_SUCCESS)" template="AuthDomain_UserDomain_UserName_InitiatorDomain_InitiatorName"/>
+					<event value="5639" level="win:Warning" task="AuthDomainManagement" channel="op" symbol="DP_DOMAIN_REMOVEUSER_FAILURE_EXT" message="$(MC.DP_DOMAIN_REMOVEUSER_FAILURE)" template="AuthDomain_UserDomain_UserName_InitiatorDomain_InitiatorName_Error_Message"/>
+					<event value="5640" level="win:Informational" task="AuthDomainManagement" channel="op" symbol="DP_DOMAIN_REMOVEUSER_SUCCESS_EXT" message="$(MC.DP_DOMAIN_REMOVEUSER_SUCCESS)" template="AuthDomain_UserDomain_UserName_InitiatorDomain_InitiatorName"/>
+					<event value="5641" level="win:Warning" task="AuthDomainManagement" channel="op" symbol="DP_DOMAIN_SETUSERCREDS_FAILURE_EXT" message="$(MC.DP_DOMAIN_SETUSERCREDS_FAILURE)" template="AuthDomain_UserDomain_UserName_Credentials_InitiatorDomain_InitiatorName_Error_Message_CredentialMask"/>
+					<event value="5642" level="win:Informational" task="AuthDomainManagement" channel="op" symbol="DP_DOMAIN_SETUSERCREDS_SUCCESS_EXT" message="$(MC.DP_DOMAIN_SETUSERCREDS_SUCCESS)" template="AuthDomain_UserDomain_UserName_Credentials_InitiatorDomain_InitiatorName_CredentialMask"/>
+					<event value="5643" level="win:Warning" task="AuthDomainManagement" channel="op" symbol="DP_DOMAIN_SETUSERPOLICY_FAILURE_EXT" message="$(MC.DP_DOMAIN_SETUSERPOLICY_FAILURE)" template="AuthDomain_UserDomain_UserName_Policy_InitiatorDomain_InitiatorName_Error_Message_PolicyMask_RuleMask"/>
+					<event value="5644" level="win:Informational" task="AuthDomainManagement" channel="op" symbol="DP_DOMAIN_SETUSERPOLICY_SUCCESS_EXT" message="$(MC.DP_DOMAIN_SETUSERPOLICY_SUCCESS)" template="AuthDomain_UserDomain_UserName_Policy_InitiatorDomain_InitiatorName_PolicyMask_RuleMask"/>
+					<event value="5645" level="win:Warning" task="AuthDomainManagement" channel="op" symbol="DP_DOMAIN_UPDATEUSER_FAILURE_EXT" message="$(MC.DP_DOMAIN_UPDATEUSER_FAILURE)" template="AuthDomain_UserDomain_UserName_InitiatorDomain_InitiatorName_Error_Message"/>
+					<event value="5646" level="win:Informational" task="AuthDomainManagement" channel="op" symbol="DP_DOMAIN_UPDATEUSER_SUCCESS_EXT" message="$(MC.DP_DOMAIN_UPDATEUSER_SUCCESS)" template="AuthDomain_UserDomain_UserName_InitiatorDomain_InitiatorName"/>
+					<event value="5647" level="win:Informational" task="AuthDomainManagement" channel="op" symbol="DP_STATUS_EVENT_DOMAIN_STATUS_EXT" message="$(MC.DP_STATUS_EVENT_DOMAIN_STATUS)" template="Status"/>
+					<event value="5649" level="win:Informational" task="AuthDomainManagement" channel="op" symbol="DP_STATUS_EVENT_LOGON_POLICY_USER_EXT" message="$(MC.DP_STATUS_EVENT_LOGON_POLICY_USER)" template="Status"/>
+					<event value="5650" level="win:Informational" task="AuthDomainManagement" channel="op" symbol="DP_STATUS_EVENT_LOGON_POLICY_ADMIN_EXT" message="$(MC.DP_STATUS_EVENT_LOGON_POLICY_ADMIN)" template="Status"/>
+					<event value="5651" level="win:Informational" task="AuthDomainManagement" channel="op" symbol="DP_STATUS_EVENT_SESSION_POLICY_USER_EXT" message="$(MC.DP_STATUS_EVENT_SESSION_POLICY_USER)" template="Status"/>
+					<event value="5652" level="win:Informational" task="AuthDomainManagement" channel="op" symbol="DP_STATUS_EVENT_SESSION_POLICY_ADMIN_EXT" message="$(MC.DP_STATUS_EVENT_SESSION_POLICY_ADMIN)" template="Status"/>
+					<event value="5653" level="win:Informational" task="AuthDomainManagement" channel="op" symbol="DP_STATUS_EVENT_LOGON_POLICY_EXT" message="$(MC.DP_STATUS_EVENT_LOGON_POLICY)" template="Status"/>
+					<event value="5654" level="win:Informational" task="AuthDomainManagement" channel="op" symbol="DP_STATUS_EVENT_SESSION_POLICY_EXT" message="$(MC.DP_STATUS_EVENT_SESSION_POLICY)" template="Status"/>
+					<event value="6145" level="win:Informational" task="BehaviorManagement" channel="op" symbol="DP_BEHAVIOR_TRAINING_COMPLETE_EXT" message="$(MC.DP_BEHAVIOR_TRAINING_COMPLETE)" template="UserDomain_UserName"/>
+					<event value="6146" level="win:Warning" task="BehaviorManagement" channel="op" symbol="DP_BEHAVIOR_TRAINING_RESET_EXT" message="$(MC.DP_BEHAVIOR_TRAINING_RESET)" template="UserDomain_UserName"/>
+					<event value="6147" level="win:Informational" task="BehaviorManagement" channel="op" symbol="DP_BEHAVIOR_TRAINING_PROGRESS_EXT" message="$(MC.DP_BEHAVIOR_TRAINING_PROGRESS)" template="UserDomain_UserName_TrainingPercentComplete"/>
+				</events>
+			</provider>
+			<provider name="DigitalPersona-Altus-Logon" guid="{FB4CA59D-9C36-4DA7-A1E8-E0E3FA7A77B0}" symbol="DP_LOGON_PROVIDER" resourceFileName="C:\Program Files\DigitalPersona\Bin\DPEventMsg.dll" messageFileName="C:\Program Files\DigitalPersona\Bin\DPEventMsg.dll">
+				<channels>
+					<channel chid="op" name="DigitalPersona-Altus-Logon/Operational" type="Operational" symbol="EVENTLOGGINGEXT_OPERATIONAL_2" isolation="Application" enabled="true"/>
+				</channels>
+				<tasks>
+					<task value="4864" name="WindowsLogon" eventGUID="{6F5DC6F0-D003-4f69-9A2D-AC8864CF253D}" symbol="DP_LOGON_CAT_EXT" message="$(MC.DP_LOGON_CAT)"/>
+				</tasks>
+				<templates>
+					<template tid="UserDomain_UserName_Credentials_CredentialMask">
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="Credentials" inType="win:UnicodeString"/>
+						<data name="CredentialMask" inType="win:UnicodeString"/>
+					</template>
+					<template tid="UserName">
+						<data name="UserName" inType="win:UnicodeString"/>
+					</template>
+					<template tid=""/>
+					<template tid="Description">
+						<data name="Description" inType="win:UnicodeString"/>
+					</template>
+				</templates>
+				<events>
+					<event value="4865" level="win:Informational" task="WindowsLogon" channel="op" symbol="DP_GINA_LOGON_EXT" message="$(MC.DP_GINA_LOGON)" template="UserDomain_UserName_Credentials_CredentialMask"/>
+					<event value="4866" level="win:Informational" task="WindowsLogon" channel="op" symbol="DP_GINA_UNLOCK_EXT" message="$(MC.DP_GINA_UNLOCK)" template="UserDomain_UserName_Credentials_CredentialMask"/>
+					<event value="4867" level="win:Informational" task="WindowsLogon" channel="op" symbol="DP_GINA_LOGON_KIOSK_EXT" message="$(MC.DP_GINA_LOGON_KIOSK)" template="UserDomain_UserName_Credentials_CredentialMask"/>
+					<event value="4868" level="win:Informational" task="WindowsLogon" channel="op" symbol="DP_GINA_UNLOCK_KIOSK_EXT" message="$(MC.DP_GINA_UNLOCK_KIOSK)" template="UserDomain_UserName_Credentials_CredentialMask"/>
+					<event value="4869" level="win:Informational" task="WindowsLogon" channel="op" symbol="DP_GINA_LOCK_EXT" message="$(MC.DP_GINA_LOCK)" template="UserName"/>
+					<event value="4870" level="win:Informational" task="WindowsLogon" channel="op" symbol="DP_GINA_LOGOFF_EXT" message="$(MC.DP_GINA_LOGOFF)" template="UserName"/>
+					<event value="4871" level="win:Informational" task="WindowsLogon" channel="op" symbol="DP_GINA_LOCK_KIOSK_EXT" message="$(MC.DP_GINA_LOCK_KIOSK)" template=""/>
+					<event value="4872" level="win:Informational" task="WindowsLogon" channel="op" symbol="DP_GINA_LOGOFF_KIOSK_EXT" message="$(MC.DP_GINA_LOGOFF_KIOSK)" template=""/>
+					<event value="4873" level="win:Error" task="WindowsLogon" channel="op" symbol="DP_GINA_SHARED_ACCOUNT_PROBLEM_EXT" message="$(MC.DP_GINA_SHARED_ACCOUNT_PROBLEM)" template="Description"/>
+				</events>
+			</provider>
+			<provider name="DigitalPersona-Altus-RADIUS" guid="{AC4670D6-2058-4697-98F1-1E4165342AFF}" symbol="DP_RADIUS_PROVIDER" resourceFileName="C:\Program Files\DigitalPersona\Bin\DPEventMsg.dll" messageFileName="C:\Program Files\DigitalPersona\Bin\DPEventMsg.dll">
+				<channels>
+					<channel chid="op" name="DigitalPersona-Altus-RADIUS/Operational" type="Operational" symbol="EVENTLOGGINGEXT_OPERATIONAL_3" isolation="Application" enabled="true"/>
+				</channels>
+				<tasks>
+					<task value="6400" name="RADIUSAuthentication" eventGUID="{6513D8BD-1E19-4A5E-9426-01DFF5D428F8}" symbol="DP_RADIUS_AUTHENTICATION_CAT_EXT" message="$(MC.DP_RADIUS_AUTHENTICATION_CAT)"/>
+				</tasks>
+				<templates>
+					<template tid="UserDomain_UserName_CallingStation_Error">
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="CallingStation" inType="win:UnicodeString"/>
+						<data name="Error" inType="win:UnicodeString"/>
+					</template>
+					<template tid="UserDomain_UserName_CallingStation_Credentials_CredentialMask">
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="CallingStation" inType="win:UnicodeString"/>
+						<data name="Credentials" inType="win:UnicodeString"/>
+						<data name="CredentialMask" inType="win:UnicodeString"/>
+					</template>
+				</templates>
+				<events>
+					<event value="6401" level="win:Error" task="RADIUSAuthentication" channel="op" symbol="DP_RADIUS_AUTH_FAILURE_EXT" message="$(MC.DP_RADIUS_AUTH_FAILURE)" template="UserDomain_UserName_CallingStation_Error"/>
+					<event value="6402" level="win:Informational" task="RADIUSAuthentication" channel="op" symbol="DP_RADIUS_AUTH_SUCCESS_EXT" message="$(MC.DP_RADIUS_AUTH_SUCCESS)" template="UserDomain_UserName_CallingStation_Credentials_CredentialMask"/>
+				</events>
+			</provider>
+			<provider name="DigitalPersona-Altus-Policies" guid="{C6A29B43-3F4B-4F27-84B1-46F5636237FA}" symbol="DP_POLICIES_PROVIDER" resourceFileName="C:\Program Files\DigitalPersona\Bin\DPEventMsg.dll" messageFileName="C:\Program Files\DigitalPersona\Bin\DPEventMsg.dll">
+				<channels>
+					<channel chid="op" name="DigitalPersona-Altus-Policies/Operational" type="Operational" symbol="EVENTLOGGINGEXT_OPERATIONAL_4" isolation="Application" enabled="true"/>
+				</channels>
+				<tasks>
+					<task value="5376" name="PolicyManagement" eventGUID="{AA4C7C44-8B8D-4565-8F68-9076C58E003A}" symbol="DP_POLICY_MANAGEMENT_CAT_EXT" message="$(MC.DP_POLICY_MANAGEMENT_CAT)"/>
+				</tasks>
+				<templates>
+					<template tid="PolicyName_Policy_PolicyMask">
+						<data name="PolicyName" inType="win:UnicodeString"/>
+						<data name="Policy" inType="win:UnicodeString"/>
+						<data name="PolicyMask" inType="win:UnicodeString"/>
+					</template>
+					<template tid="UserDomain_UserName_Policy_PolicyMask">
+						<data name="UserDomain" inType="win:UnicodeString"/>
+						<data name="UserName" inType="win:UnicodeString"/>
+						<data name="Policy" inType="win:UnicodeString"/>
+						<data name="PolicyMask" inType="win:UnicodeString"/>
+					</template>
+					<template tid="GroupDomain_GroupName_Policy_PolicyMask">
+						<data name="GroupDomain" inType="win:UnicodeString"/>
+						<data name="GroupName" inType="win:UnicodeString"/>
+						<data name="Policy" inType="win:UnicodeString"/>
+						<data name="PolicyMask" inType="win:UnicodeString"/>
+					</template>
+				</templates>
+				<events>
+					<event value="5377" level="win:Informational" task="PolicyManagement" channel="op" symbol="DP_LOGON_POLICY_CHANGE_EXT" message="$(MC.DP_LOGON_POLICY_CHANGE)" template="PolicyName_Policy_PolicyMask"/>
+					<event value="5378" level="win:Informational" task="PolicyManagement" channel="op" symbol="DP_SESSION_POLICY_CHANGE_EXT" message="$(MC.DP_SESSION_POLICY_CHANGE)" template="PolicyName_Policy_PolicyMask"/>
+					<event value="5379" level="win:Informational" task="PolicyManagement" channel="op" symbol="DP_ENROLLMENT_POLICY_CHANGE_EXT" message="$(MC.DP_ENROLLMENT_POLICY_CHANGE)" template="PolicyName_Policy_PolicyMask"/>
+					<event value="5380" level="win:Informational" task="PolicyManagement" channel="op" symbol="DP_KIOSK_POLICY_CHANGE_EXT" message="$(MC.DP_KIOSK_POLICY_CHANGE)" template="PolicyName_Policy_PolicyMask"/>
+					<event value="5381" level="win:Informational" task="PolicyManagement" channel="op" symbol="DP_ENHANCED_POLICY_CHANGE_EXT" message="$(MC.DP_ENHANCED_POLICY_CHANGE)" template="PolicyName_Policy_PolicyMask"/>
+					<event value="5382" level="win:Informational" task="PolicyManagement" channel="op" symbol="DP_USER_POLICY_CHANGE_EXT" message="$(MC.DP_USER_POLICY_CHANGE)" template="UserDomain_UserName_Policy_PolicyMask"/>
+					<event value="5383" level="win:Informational" task="PolicyManagement" channel="op" symbol="DP_GROUP_POLICY_CHANGE_EXT" message="$(MC.DP_GROUP_POLICY_CHANGE)" template="GroupDomain_GroupName_Policy_PolicyMask"/>
+				</events>
+			</provider>
+		</events>
+	</instrumentation>
+</instrumentationManifest>
